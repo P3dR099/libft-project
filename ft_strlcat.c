@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/07 13:04:00 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/07 13:04:26 by pconde-c         ###   ########.fr       */
+/*   Created: 2019/12/04 12:32:24 by pconde-c          #+#    #+#             */
+/*   Updated: 2020/01/09 15:23:40 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int		ft_atoi(char *str)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int		i;
-	int		sign;
-	int		sol;
+	unsigned int	i;
+	unsigned int	n;
 
 	i = 0;
-	sign = 1;
-	sol = 0;
-	while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
-			|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v'))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while (dest[i] != '\0')
 	{
-		if (str[i] == '-')
-			sign = sign * (-1);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	n = 0;
+	if (size == 0)
+		return (i);
+	while (src[n] != '\0' && n < (size - 1))
 	{
-		sol = (sol * 10) + (str[i] - 48);
+		dest[i] = src[n];
 		i++;
+		n++;
 	}
-	return (sol * sign);
+	dest[i] = '\0';
+	//a = pos_dest + pos_src;
+	return (i);
 }

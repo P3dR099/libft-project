@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/07 13:12:13 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/07 13:12:32 by pconde-c         ###   ########.fr       */
+/*   Created: 2020/01/13 17:04:40 by pconde-c          #+#    #+#             */
+/*   Updated: 2020/01/13 19:03:16 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_alpha(char *str)
+#include "libft.h"
+
+char	*ft_strnstr(const char *dst, const char *src, size_t len)
 {
-	int i;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
-	while (str[i] != '\0')
+	j = 0;
+	while (dst[i] && i < len)
 	{
-		if (str[i] < 'A' || (str[i] > 'Z' && str[i] < 'a') || str[i] > 'z')
+		if (dst[i] == src[0])
 		{
-			return (0);
+			while (src[j] && i + j < len)
+			{
+				if (src[j] != dst[i + j])
+					break ;
+				j++;
+			}
+			if (!src[j])
+				return ((char *)dst + i);
 		}
 		i++;
 	}
-	return (1);
+	if (src[0] == 0)
+		return ((char *)dst);
+	return (NULL);
 }

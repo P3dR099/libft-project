@@ -1,10 +1,15 @@
 NAME	=	libft.a
 
-SRC		=	ft_isalpha.c\
+SRC		=	ft_atoi.c\
+			ft_isalpha.c\
 			ft_memcpy.c\
 			ft_memset.c\
-			ft_strlcpy\
-			ft_strlen\
+			ft_strlcpy.c\
+			ft_strlen.c\
+			ft_strlcat.c\
+			ft_strncmp.c\
+			ft_toupper.c\
+			ft_isdigit.c\
 			
 
 SRB		=	ft_lstadd_back_bonus.c\
