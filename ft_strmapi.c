@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/04 12:32:24 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/21 17:29:10 by pconde-c         ###   ########.fr       */
+/*   Created: 2020/01/17 13:41:43 by pconde-c          #+#    #+#             */
+/*   Updated: 2020/01/21 16:47:31 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	r;
-	size_t	i;
-	size_t	dstsize;
+	int		i;
+	char	*r;
 
-	dstsize = ft_strlen(dest);
 	i = 0;
-	if (n <= dstsize)
-		r = (ft_strlen(src) + n);
-	else
+	if (!s || !(r = ft_calloc(ft_strlen(s) + 1, sizeof(char))))
+		return (NULL);
+	while (s[i])
 	{
-		r = (dstsize + ft_strlen(src));
-		while (i + dstsize + 1 < n && src[i])
-		{
-			dest[i + dstsize] = src[i];
-			i++;
-		}
-		dest[i + dstsize] = 0;
+		r[i] = (*f)(i, s[i]);
+		i++;
 	}
 	return (r);
 }

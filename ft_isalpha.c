@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedro-02 <pedro-02@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:12:13 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/15 00:20:45 by pedro-02         ###   ########.fr       */
+/*   Updated: 2020/01/15 13:41:59 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_isalpha(int str)
 {
-	if ((str > 'A' && str < 'Z') || (str > 'a' && str < 'z'))
+	if ((str >= 'A' && str <= 'Z') || (str >= 'a' && str <= 'z'))
 		return (1);
 	return (0);
 }

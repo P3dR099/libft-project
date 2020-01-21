@@ -6,11 +6,11 @@
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 12:47:21 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/07 12:47:49 by pconde-c         ###   ########.fr       */
+/*   Updated: 2020/01/16 15:13:50 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+int		ft_strlen(const char *str)
 {
 	int m;
 

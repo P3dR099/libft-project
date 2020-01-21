@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/13 13:43:05 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/13 14:30:22 by pconde-c         ###   ########.fr       */
+/*   Created: 2020/01/15 14:50:38 by pconde-c          #+#    #+#             */
+/*   Updated: 2020/01/15 14:50:45 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*dst2;
-	char	*src2;
+	char	*p1;
+	char	*p2;
 	size_t	i;
 
-	dst2 = (char *)dst;
-	src2 = (char *)src;
-	if (dst2 == NULL && src2 == NULL)
-	{
+	p1 = (char *)dst;
+	p2 = (char *)src;
+	if (p1 == NULL && p2 == NULL)
 		return (NULL);
+	i = 0;
+	if (src > dst)
 		while (i < len)
 		{
-			src2[i] = dst2[i];
+			p1[i] = p2[i];
 			i++;
 		}
-	}
 	else
 	{
 		while (len > 0)
 		{
-			src2[len - 1] = dst2[len - 1];
+			p1[len - 1] = p2[len - 1];
 			len--;
 		}
 	}

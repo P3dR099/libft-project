@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/04 12:32:24 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/21 17:29:10 by pconde-c         ###   ########.fr       */
+/*   Created: 2020/01/15 14:07:47 by pconde-c          #+#    #+#             */
+/*   Updated: 2020/01/15 17:12:09 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	r;
-	size_t	i;
-	size_t	dstsize;
+	size_t			i;
+	unsigned char	*p;
 
-	dstsize = ft_strlen(dest);
 	i = 0;
-	if (n <= dstsize)
-		r = (ft_strlen(src) + n);
-	else
-	{
-		r = (dstsize + ft_strlen(src));
-		while (i + dstsize + 1 < n && src[i])
-		{
-			dest[i + dstsize] = src[i];
-			i++;
-		}
-		dest[i + dstsize] = 0;
-	}
-	return (r);
+	p = (unsigned char *)s;
+	while (i < n && p[i] != (unsigned char)c && p[i])
+		i++;
+	if (p[i] == (unsigned char)c && i < n)
+		return ((void *)s + i);
+	return (NULL);
 }

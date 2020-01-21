@@ -6,7 +6,7 @@
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 16:24:03 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/13 17:41:04 by pconde-c         ###   ########.fr       */
+/*   Updated: 2020/01/21 17:41:30 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (c1[i] == c2[i] && i < n - 1)
+	while (c1[i] && c2[i] && c1[i] == c2[i] && i < n - 1)
 	{
 		i++;
 	}

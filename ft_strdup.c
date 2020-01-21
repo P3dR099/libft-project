@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/04 12:32:24 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/21 17:29:10 by pconde-c         ###   ########.fr       */
+/*   Created: 2020/01/16 12:51:01 by pconde-c          #+#    #+#             */
+/*   Updated: 2020/01/16 14:49:52 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	size_t	r;
-	size_t	i;
-	size_t	dstsize;
+	int		len;
+	char	*r;
+	int		i;
 
-	dstsize = ft_strlen(dest);
+	len = ft_strlen(s1) + 1;
+	r = ft_calloc(len, sizeof(char));
 	i = 0;
-	if (n <= dstsize)
-		r = (ft_strlen(src) + n);
-	else
+	if (r != NULL)
 	{
-		r = (dstsize + ft_strlen(src));
-		while (i + dstsize + 1 < n && src[i])
+		while (i < len - 1)
 		{
-			dest[i + dstsize] = src[i];
+			r[i] = s1[i];
 			i++;
 		}
-		dest[i + dstsize] = 0;
+		r[i] = 0;
 	}
 	return (r);
 }

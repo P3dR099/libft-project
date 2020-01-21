@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/04 12:32:24 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/21 17:29:10 by pconde-c         ###   ########.fr       */
+/*   Created: 2020/01/15 15:44:29 by pconde-c          #+#    #+#             */
+/*   Updated: 2020/01/15 17:42:53 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
+void	*ft_memccpy(void *restrict dst,
+const void *restrict src, int c, size_t n)
 {
-	size_t	r;
-	size_t	i;
-	size_t	dstsize;
+	size_t			i;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-	dstsize = ft_strlen(dest);
 	i = 0;
-	if (n <= dstsize)
-		r = (ft_strlen(src) + n);
-	else
+	p1 = (unsigned char *)dst;
+	p2 = (unsigned char *)src;
+	if (p1 == NULL && p2 == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		r = (dstsize + ft_strlen(src));
-		while (i + dstsize + 1 < n && src[i])
-		{
-			dest[i + dstsize] = src[i];
-			i++;
-		}
-		dest[i + dstsize] = 0;
+		p1[i] = p2[i];
+		if (p1[i] == (unsigned char)c)
+			return (dst + i + 1);
+		i++;
 	}
-	return (r);
+	return (NULL);
 }

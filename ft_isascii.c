@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/04 12:32:24 by pconde-c          #+#    #+#             */
-/*   Updated: 2020/01/21 17:29:10 by pconde-c         ###   ########.fr       */
+/*   Created: 2020/01/15 13:45:06 by pconde-c          #+#    #+#             */
+/*   Updated: 2020/01/15 13:47:53 by pconde-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
+int		ft_isascii(int c)
 {
-	size_t	r;
-	size_t	i;
-	size_t	dstsize;
-
-	dstsize = ft_strlen(dest);
-	i = 0;
-	if (n <= dstsize)
-		r = (ft_strlen(src) + n);
-	else
-	{
-		r = (dstsize + ft_strlen(src));
-		while (i + dstsize + 1 < n && src[i])
-		{
-			dest[i + dstsize] = src[i];
-			i++;
-		}
-		dest[i + dstsize] = 0;
-	}
-	return (r);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

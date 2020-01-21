@@ -1,24 +1,25 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pconde-c <pconde-c@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/15 14:04:57 by pconde-c          #+#    #+#             */
+/*   Updated: 2020/01/15 14:06:15 by pconde-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-char *ft_strchr(const char *s, int c)
+
+char	*ft_strchr(const char *s, int c)
 {
 	int i;
+
 	i = 0;
-	while(s[i] && s[i] != c)
+	while (s[i] && s[i] != c)
 		i++;
 	if (s[i] == c)
-		return((char *)s + i);
-	return(NULL);
-}
-int main()
-{
-	char s[11] = "Hola amigos";
-   char c = 'a';
-
-   printf( "s=%s\t", s );
-   printf( "c=%c\n", c );
-   printf( "strchr=%s\n", strchr( s, c ) );
-   printf( "\nft=strchr=%s\n", ft_strchr( s, c ) );
-
-   return 0;
+		return ((char *)s + i);
+	return (NULL);
 }
