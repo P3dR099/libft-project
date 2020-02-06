@@ -14,7 +14,6 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		n;
 	char	*r;
 	size_t	i;
 
@@ -25,7 +24,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = start;
 	while (s[i] && i - start < len)
 		i++;
-	n = ft_strlen(s);
 	r = ft_calloc((i - start + 1), sizeof(char));
 	i = start;
 	if (r == NULL)
